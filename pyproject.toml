@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "todolist"
+version = "0.1.0"
+description = "pet-project ToDo List"
+authors = ["aleksandrchekalin <aleksandrcekalin082@gmil.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.3"
+django-environ = "^0.10.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
