@@ -9,5 +9,5 @@ jobs:
       - name: docker build
         run: docker build -t alex1995174/api:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
       - uses: docker push
-        run: docker psuh alex1995174/api:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+        run: docker push alex1995174/api:$GITHUB_REF_NAME-$GITHUB_RUN_ID
 
