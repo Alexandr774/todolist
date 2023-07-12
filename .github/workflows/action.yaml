@@ -1,9 +1,7 @@
 name: Build and deploy workflow
-on:
-  push:
-    branches: [ "test" ]
+on: [push]
 jobs:
-  build and push:
+  build_and_push:
     runs-on: ubuntu-latest
     steps:
       - name: list dir
