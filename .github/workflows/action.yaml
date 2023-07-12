@@ -1,5 +1,7 @@
 name: Build and deploy workflow
-on: [push]
+on:
+  push:
+    branches: [ "test" ]
 jobs:
   build and push:
     runs-on: ubuntu-latest
