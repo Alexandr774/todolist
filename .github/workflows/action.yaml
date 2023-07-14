@@ -32,6 +32,18 @@ jobs:
           source: "deploy/docker-compose.yaml"
           target: "todolist-ci"
           strip_components: 1
+      - name: deploy app
+        uses: appleboy/ssh-action@test
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd todolist-ci
+            echo ${{ secrets.PASSWORD }} | sudo -S docker compose up -d 
+
+
 
 
 
