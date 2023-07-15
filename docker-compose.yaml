@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   api:
-    image: alex1995174/api
+    image: alex1995174/apiapi
     ports:
       - 8000:8000
     volumes:
