@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   api:
-    image: ${DOCKER_USERNAME}/api:v1.9
+    image: ${DOCKER_USERNAME}/api:latest
     restart: always
     env_file:
       - ./.env
