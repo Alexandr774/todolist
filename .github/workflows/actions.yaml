@@ -58,6 +58,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd todolist
-            echo ${{ secrets.PASSWORD }} | sudo -S docker pull ${{ secrets.USERNAME }}/api:latest
+            docker pull ${{ secrets.USERNAME }}/api:latest
             docker compose up -d
-            sudo -S docker system prune
+            docker system prune
