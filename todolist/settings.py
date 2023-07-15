@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-import os
 from pathlib import Path
 import environ
 
@@ -21,7 +20,7 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 # reading .env file
-env.read_env(os.path.join(BASE_DIR, '.env'))
+environ.Env.read_env(BASE_DIR.joinpath('.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,7 +31,7 @@ SECRET_KEY = 'django-insecure-dvelnmlses_m3wp^*-5fin10d#8h&+772s+kwkj7cftkd1tlo@
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True #env('DEBUG')
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ["*"]
 
@@ -86,10 +85,10 @@ WSGI_APPLICATION = 'todolist.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': '588114bfiF',
-        'HOST': 'pg',
+        'NAME': env('NAME'),
+        'USER': env('USERO'),
+        'PASSWORD': env('PASSWORD_DB'),
+        'HOST': env('HOST_DB', default='0.0.0.0'),
         'PORT': '5432',
     }
 }

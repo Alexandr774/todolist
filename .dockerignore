@@ -1,0 +1,10 @@
+.env
+.gitignore
+docker-compose.yaml
+.github
+venv
+Dockerfile
+.git
+.DS_Store
+config.py
+test.py
