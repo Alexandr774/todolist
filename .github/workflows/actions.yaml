@@ -58,6 +58,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd todolist
-            docker pull ${{ secrets.USERNAME }}/api:latest
+            docker pull alex1995174/api:latest
             docker compose up -d
             docker system prune
