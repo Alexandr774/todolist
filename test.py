@@ -10,4 +10,6 @@ env = environ.Env(
 # reading .env file
 env.read_env(os.path.join(BASE_DIR, '.env'))
 
-print(env('PASSWORD_DB'))
+print(env('POSTGRES_PASSWORD'))
+print(env('POSTGRES_USER'))
+print(env('POSTGRES_DB'))
