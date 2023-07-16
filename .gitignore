@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 .env
 pg_data
+deploy/pg_data
