@@ -161,3 +161,4 @@ cython_debug/
 .env
 pg_data
 deploy/pg_data
+test.py
