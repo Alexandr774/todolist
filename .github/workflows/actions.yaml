@@ -1,7 +1,8 @@
 name: Build and deploy workflow
 on:
   push:
-    branches: [ "main" ]
+    tags:
+      - 'v*'
 jobs:
   build:
     runs-on: ubuntu-latest
