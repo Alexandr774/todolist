@@ -51,15 +51,15 @@ jobs:
           source: "deploy/*"
           target: todolist
           strip_components: 1
-      - name: Run compose
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: |
-            cd todolist
-            docker pull alex1995174/api:latest
-            docker compose up -d
-            docker system prune -a
-            Y
+#      - name: Run compose
+#        uses: appleboy/ssh-action@master
+#        with:
+#          host: ${{ secrets.HOST }}
+#          username: ${{ secrets.USERNAME }}
+#          password: ${{ secrets.PASSWORD }}
+#          port: ${{ secrets.PORT }}
+#          script: |
+#            cd todolist
+#            docker pull alex1995174/api:latest
+#            docker compose up -d
+#            docker system prune
