@@ -186,6 +186,45 @@ docs = ["furo (>=2021.8.17b43,<2021.9.dev0)", "sphinx (>=3.5.0)", "sphinx-notfou
 testing = ["coverage[toml] (>=5.0a4)", "pytest (>=4.6.11)"]
 
 [[package]]
+name = "djangorestframework"
+version = "3.14.0"
+description = "Web APIs for Django, made easy."
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "djangorestframework-3.14.0-py3-none-any.whl", hash = "sha256:eb63f58c9f218e1a7d064d17a70751f528ed4e1d35547fdade9aaf4cd103fd08"},
+    {file = "djangorestframework-3.14.0.tar.gz", hash = "sha256:579a333e6256b09489cbe0a067e66abe55c6595d8926be6b99423786334350c8"},
+]
+
+[package.dependencies]
+django = ">=3.0"
+pytz = "*"
+
+[[package]]
+name = "djangorestframework-simplejwt"
+version = "5.2.2"
+description = "A minimal JSON Web Token authentication plugin for Django REST Framework"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "djangorestframework_simplejwt-5.2.2-py3-none-any.whl", hash = "sha256:4c0d2e2513e12587d93501ac091781684a216c3ee614eb3b5a10586aef5ca845"},
+    {file = "djangorestframework_simplejwt-5.2.2.tar.gz", hash = "sha256:d27d4bcac2c6394f678dea8b4d0d511c6e18a7f2eb8aaeeb8a7de601aeb77c42"},
+]
+
+[package.dependencies]
+django = "*"
+djangorestframework = "*"
+pyjwt = ">=1.7.1,<3"
+
+[package.extras]
+crypto = ["cryptography (>=3.3.1)"]
+dev = ["Sphinx (>=1.6.5,<2)", "cryptography", "flake8", "ipython", "isort", "pep8", "pytest", "pytest-cov", "pytest-django", "pytest-watch", "pytest-xdist", "python-jose (==3.3.0)", "sphinx-rtd-theme (>=0.1.9)", "tox", "twine", "wheel"]
+doc = ["Sphinx (>=1.6.5,<2)", "sphinx-rtd-theme (>=0.1.9)"]
+lint = ["flake8", "isort", "pep8"]
+python-jose = ["python-jose (==3.3.0)"]
+test = ["cryptography", "pytest", "pytest-cov", "pytest-django", "pytest-xdist", "tox"]
+
+[[package]]
 name = "psycopg2-binary"
 version = "2.9.6"
 description = "psycopg2 - Python-PostgreSQL Database Adapter"
@@ -268,6 +307,34 @@ files = [
 ]
 
 [[package]]
+name = "pyjwt"
+version = "2.7.0"
+description = "JSON Web Token implementation in Python"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "PyJWT-2.7.0-py3-none-any.whl", hash = "sha256:ba2b425b15ad5ef12f200dc67dd56af4e26de2331f965c5439994dad075876e1"},
+    {file = "PyJWT-2.7.0.tar.gz", hash = "sha256:bd6ca4a3c4285c1a2d4349e5a035fdf8fb94e04ccd0fcbe6ba289dae9cc3e074"},
+]
+
+[package.extras]
+crypto = ["cryptography (>=3.4.0)"]
+dev = ["coverage[toml] (==5.0.4)", "cryptography (>=3.4.0)", "pre-commit", "pytest (>=6.0.0,<7.0.0)", "sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
+docs = ["sphinx (>=4.5.0,<5.0.0)", "sphinx-rtd-theme", "zope.interface"]
+tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
+
+[[package]]
+name = "pytz"
+version = "2023.3"
+description = "World timezone definitions, modern and historical"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pytz-2023.3-py2.py3-none-any.whl", hash = "sha256:a151b3abb88eda1d4e34a9814df37de2a80e301e68ba0fd856fb9b46bfbbbffb"},
+    {file = "pytz-2023.3.tar.gz", hash = "sha256:1d8ce29db189191fb55338ee6d0387d82ab59f3d00eac103412d64e0ebd0c588"},
+]
+
+[[package]]
 name = "sqlparse"
 version = "0.4.4"
 description = "A non-validating SQL parser."
@@ -297,4 +364,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "ec9a854ebe127cf586350e2d24bcbd47d090cdac73a05799646b4d808e5ced5f"
+content-hash = "7a001e314e54f72472300fffec33f0e0023ca6874e64c97c4c6a59ea3d28f205"

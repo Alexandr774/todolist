@@ -33,7 +33,7 @@ services:
       timeout: 5s
       retries: 5
   front:
-    image: 14a79381ab41b94844bc9705c415969bdaaab25b574c4fe29d35df68ccca611f
+    image: sermalenk/skypro-front:lesson-35
     links:
       - api
     ports:
