@@ -1,11 +1,11 @@
 from django.contrib.auth import login, logout
 from django.http import HttpResponse
 from rest_framework import permissions, status
-from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView
 from rest_framework.response import Response
 
 from core.models import User
-from core.serializers import CreateUserSerializer, LoginSerializer, UpdateUserSerializer
+from core.serializers import CreateUserSerializer, LoginSerializer, UpdateUserSerializer, UpdateUserPasswordSerializer
 
 
 def index(request):
@@ -34,5 +34,12 @@ class UpdateUserApiView(RetrieveUpdateDestroyAPIView):
     def delete(self, request, *args, **kwargs):
         logout(request)
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class UpdateUserPasswordView(UpdateAPIView):
+    serializer_class = UpdateUserPasswordSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
 
 
