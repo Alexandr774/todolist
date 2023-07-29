@@ -13,8 +13,8 @@ services:
     depends_on:
       pg:
         condition: service_healthy
-    ports:
-      - 8000:8000
+#    ports:
+#      - 8000:8000
     volumes:
       - ./:/opt/todolist
   pg:

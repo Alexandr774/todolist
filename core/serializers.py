@@ -52,7 +52,7 @@ class LoginSerializer(serializers.ModelSerializer):
         return user
 
 
-class UpdateUserSerializer(serializers.ModelSerializer):
+class ProfilSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'first_name', 'last_name', 'email')

@@ -5,7 +5,7 @@ from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView,
 from rest_framework.response import Response
 
 from core.models import User
-from core.serializers import CreateUserSerializer, LoginSerializer, UpdateUserSerializer, UpdateUserPasswordSerializer
+from core.serializers import CreateUserSerializer, LoginSerializer, ProfilSerializer, UpdateUserPasswordSerializer
 
 
 def index(request):
@@ -25,7 +25,7 @@ class LoginApiView(CreateAPIView):
 
 class UpdateUserApiView(RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
-    serializer_class = UpdateUserSerializer
+    serializer_class = ProfilSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self):

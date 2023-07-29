@@ -22,5 +22,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('core/', include('core.urls')),
     path('goals/', include('goals.urls')),
-    path('oauth/', include('social_django.urls', namespace='social'))
+    path('oauth/', include('social_django.urls', namespace='social')),
 ]

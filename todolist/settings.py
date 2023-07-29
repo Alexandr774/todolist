@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # 'rest_framework.authtoken',
     'social_django',
+    'django_filters',
     'core',
     'goals',
 ]
@@ -148,13 +149,12 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
     'django.contrib.auth.hashers.ScryptPasswordHasher',
 ]
-
+#
 # REST_FRAMEWORK = {
-#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-#     'PAGE_SIZE': 2,
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'rest_framework.authentication.TokenAuthentication'
-#     ]
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagintion',
+#     'DEFAULT_FILTER_BACKEND': (
+#         'django_filters.rest_framework.DjangoFilterBackend',
+#     )
 # }
 
 
@@ -177,7 +177,5 @@ SOCIAL_AUTH_VK_EXTRA_DATA = [
 SOCIAL_AUTH_NEW_REDIRECT_URL = '/logged-in/'
 SOCIAL_AUTH_USER_MODEL = 'core.User'
 
-# SOCIAL_AUTH_AUTHENTICATION_BACKEND = (
-#     'social_core.backends.vk.VKOAuth2'
-# )
+
 
