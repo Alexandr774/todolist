@@ -1,5 +1,5 @@
 from django.contrib import admin
-from goals.models import GoalCategory, Goal, GoalComment
+from goals.models import GoalCategory, Goal, GoalComment, Board
 
 
 @admin.register(GoalCategory)
@@ -18,3 +18,4 @@ class GoalAdmin(admin.ModelAdmin):
 class GoalCommentAdmin(admin.ModelAdmin):
     list_display = ("id", "user", "text")
     search_fields = ("title", "user")
+
