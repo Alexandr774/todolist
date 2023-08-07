@@ -8,9 +8,6 @@ from core.models import User
 from core.serializers import CreateUserSerializer, LoginSerializer, ProfilSerializer, UpdateUserPasswordSerializer
 
 
-def index(request):
-    return HttpResponse('hello world')
-
 class CreateUserView(CreateAPIView):
     serializer_class = CreateUserSerializer
 
@@ -20,7 +17,6 @@ class LoginApiView(CreateAPIView):
 
     def perform_create(self, serializer):
         login(self.request, user=serializer.save())
-        return
 
 
 class UpdateUserApiView(RetrieveUpdateDestroyAPIView):
@@ -31,9 +27,10 @@ class UpdateUserApiView(RetrieveUpdateDestroyAPIView):
     def get_object(self):
         return self.request.user
 
-    def delete(self, request, *args, **kwargs):
+    def delete(self, request, *args, **kwargs) -> Response:
         logout(request)
         return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class UpdateUserPasswordView(UpdateAPIView):
     serializer_class = UpdateUserPasswordSerializer
@@ -41,5 +38,3 @@ class UpdateUserPasswordView(UpdateAPIView):
 
     def get_object(self):
         return self.request.user
-
-

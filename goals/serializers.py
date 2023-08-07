@@ -32,9 +32,9 @@ class GoalCategorySerializer(serializers.ModelSerializer):
         if not BoardParticipant.object.filter(
          board=value,
          role__in=[BoardParticipant.Role.owner, BoardParticipant.Role.writer],
-         user=self.context['request'].user
+         user=self.context["request"].user
          ).exists():
-             raise serializers.ValidationError('You mast be owner or writer')
+             raise serializers.ValidationError("You mast be owner or writer")
         return value
 
 
@@ -47,11 +47,11 @@ class GoalCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Goal
-        fields = '__all__'
+        fields = "__all__"
         read_only_fields = ("id", "created", "updated", "user")
 
     def validate_category(self, value: Type[GoalCategory]):
-        if self.context['request'].user != value.user:
+        if self.context["request"].user != value.user:
             raise PermissionDenied
 
         if not BoardParticipant.objects.filter(
@@ -60,7 +60,7 @@ class GoalCreateSerializer(serializers.ModelSerializer):
         ).exists():
             raise PermissionDenied
         # if self.instance.category.board_id != value.board_id:
-        #     raise serializers.ValidationError('Transfer between projects not allowed')
+        #     raise serializers.ValidationError("Transfer between projects not allowed")
         return value
 
 
@@ -75,7 +75,7 @@ class GoalSerializer(serializers.ModelSerializer):
         read_only_fields = ("id", "created", "updated", "user",)
 
     def validate_category(self, value: Type[GoalCategory]):
-        if self.context['request'].user != value.user:
+        if self.context["request"].user != value.user:
             raise PermissionDenied
         return value
 
@@ -85,7 +85,7 @@ class GoalCommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = GoalComment
-        fields = '__all__'
+        fields = "__all__"
         read_only_fields = ("id", "created", "updated", "user", "goal")
 
 
@@ -94,7 +94,7 @@ class GoalCommentCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = GoalComment
-        fields = '__all__'
+        fields = "__all__"
         read_only_fields = ("id", "created", "updated", "user")
 
 
@@ -115,11 +115,11 @@ class BoardCreateSerializer(serializers.ModelSerializer):
 
 class BoardParticipantSerializer(serializers.ModelSerializer):
     role = serializers.ChoiceField(required=True, choices=BoardParticipant.Role.choices[1:])
-    user = serializers.SlugRelatedField(slug_field='username', queryset=User.objects.all())
+    user = serializers.SlugRelatedField(slug_field="username", queryset=User.objects.all())
 
     class Meta:
         model = BoardParticipant
-        fields = '__all__'
+        fields = "__all__"
         read_only_fields = ("id", "created", "updated")
 
 
@@ -129,12 +129,12 @@ class BoardSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Board
-        fields = '__all__'
+        fields = "__all__"
         read_only_fields = ("id", "created", "updated")
 
     def update(self, instance, validated_data):
-        owner = validated_data.pop('user')
-        new_participants = validated_data.pop('participants')
+        owner = validated_data.pop("user")
+        new_participants = validated_data.pop("participants")
         new_by_id = {part["user"].id: part for part in new_participants}
 
         old_participants = instance.participants.exclude(user=owner)
@@ -149,10 +149,10 @@ class BoardSerializer(serializers.ModelSerializer):
                     new_by_id.pop(old_participant.user_id)
         for new_part in new_by_id.values():
             BoardParticipant.objects.create(
-                board=instance, user=new_part['user'], role=new_part['role']
+                board=instance, user=new_part["user"], role=new_part["role"]
             )
 
-        if title := validated_data.get('title'):
+        if title := validated_data.get("title"):
             instance.title = title
             instance.save()
         return instance
